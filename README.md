@@ -2,6 +2,7 @@
 
 Description
 Tests are based on Java programming language and Selenium. In code is presented page object model which aim is keep code in easy and clearly way. The code is divided on class which I test the pages (folders named : HomePage, RegistrationPage etc.) and scenario tests (folder named: BaseSeleniumTest, RegistrationTest etc.). The main goal on these tests is show the most popular way to automation test and good practice.
+
 This project using the following languages and frameworks:
 •	Java 11 +
 •	Maven 3.0.3+
