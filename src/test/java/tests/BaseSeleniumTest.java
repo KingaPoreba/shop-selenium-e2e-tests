@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import java.util.concurrent.TimeUnit;
 
 public class BaseSeleniumTest {
 
@@ -15,6 +16,8 @@ public class BaseSeleniumTest {
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.get("http://automationpractice.com/index.php");
     }
 
     @AfterTest
@@ -22,6 +25,5 @@ public class BaseSeleniumTest {
         driver.close();
     }
 }
-
 
 

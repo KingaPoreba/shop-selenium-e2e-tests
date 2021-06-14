@@ -6,10 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RegistrationPage {
 
-    @FindBy(xpath = "//a[@class='login']")
+    @FindBy(partialLinkText = "Sign in")
     private WebElement signInButton;
 
     @FindBy(id = "email_create")
@@ -32,6 +33,9 @@ public class RegistrationPage {
 
     @FindBy(id = "city")
     private WebElement cityInput;
+
+    @FindBy(id = "passwd")
+    private WebElement passwordInput;
 
     @FindBy(id = "id_state")
     private WebElement stateSelect;
@@ -81,6 +85,10 @@ public class RegistrationPage {
         cityInput.sendKeys(city);
     }
 
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+
     public void chooseState(int index) {
         Select state = new Select(stateSelect);
         state.selectByIndex(index);
@@ -94,15 +102,7 @@ public class RegistrationPage {
         mobilePhoneInput.sendKeys(mobilePhone);
     }
 
-    public String findErrorMessageText(String errorMessage) {
-        for (WebElement error : errorList) {
-            String errorText = error.getText();
-
-            if (errorText.equals(errorMessage)) {
-                return errorText;
-            }
-        }
-
-        return "";
+    public List<String> getErrorMessages() {
+        return errorList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 }

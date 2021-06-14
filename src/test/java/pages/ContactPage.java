@@ -37,9 +37,9 @@ public class ContactPage {
         contactButton.click();
     }
 
-    public void chooseSubjectHeading(int index) {
+    public void chooseSubjectHeading(String text) {
         Select subjectHeading = new Select(subjectHeadingSelect);
-        subjectHeading.selectByIndex(index);
+        subjectHeading.selectByVisibleText(text);
     }
 
     public void submitContactForm() {

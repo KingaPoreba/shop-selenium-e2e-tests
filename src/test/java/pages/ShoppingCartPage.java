@@ -37,7 +37,7 @@ public class ShoppingCartPage {
     @FindBy(xpath = "//a[@class='btn btn-default button button-medium']//span")
     private WebElement checkoutButton;
 
-    @FindBy(xpath = "//*[@id='product_price_5_24_0']//span[@class='price special-price']")
+    @FindBy (xpath = "//span[@class='price special-price']")
     private WebElement priceAfterDiscount;
 
     @FindBy(xpath = "//span[@class='price-percent-reduction small']")
